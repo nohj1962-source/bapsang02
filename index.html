@@ -95,6 +95,7 @@
     <li data-emoji="🍖">돈까스</li>
     <li data-emoji="🥘">육개장</li>
     <li data-emoji="🐟">꽁치</li>
+    <li data-emoji="🥩">불고기</li>
   </ul>
 
   <footer>잘 먹겠습니다 🙏</footer>
@@ -105,14 +106,14 @@
     var cards = document.querySelectorAll('#sang li');
     var n = cards.length;
     if (n < 2) return;                      // 1개면 가운데에 그대로
-    var radius = n < 4 ? 27 : n <= 6 ? 29 : 33; // 상 중심에서의 거리(%)
-    var width = n <= 4 ? 27 : Math.max(15, 27 - (n - 4) * 2.5); // 많아지면 카드를 작게
+    var radius = n < 4 ? 27 : n <= 6 ? 29 : 34; // 상 중심에서의 거리(%)
+    var width = n <= 4 ? 27 : Math.max(15, 27 - (n - 4) * 3.2); // 많아지면 카드를 작게
     cards.forEach(function (card, i) {
       var angle = -Math.PI / 2 + (2 * Math.PI * i) / n;  // 맨 위부터 시계 방향
       card.style.left = 50 + radius * Math.cos(angle) + '%';
       card.style.top = 50 + radius * Math.sin(angle) + '%';
       card.style.width = width + '%';
-      if (n > 4) card.style.fontSize = 'clamp(12px, 2vw, 16px)';
+      if (n > 4) card.style.fontSize = 'clamp(10px, 2vw, 16px)';
     });
   })();
 </script>
